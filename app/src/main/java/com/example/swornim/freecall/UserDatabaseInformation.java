@@ -38,6 +38,9 @@ public class UserDatabaseInformation {
     private String phoneNumber;
     private String receiverUserName;
     private String receiverPhoneNumber;
+    private String lf;
+    private String rg;
+
 
     private String myselfNumber;
     private String whichMessageToEdit;
@@ -48,6 +51,22 @@ public class UserDatabaseInformation {
     private String photoUrl;
     private String friensNumber;
 
+
+    public String getLf() {
+        return lf;
+    }
+
+    public void setLf(String lf) {
+        this.lf = lf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
 
     public String getFriensNumber() {
         return friensNumber;

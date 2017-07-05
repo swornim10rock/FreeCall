@@ -108,7 +108,7 @@ public class FirebaseUserModel {
         public InstantMessaging(Context context,UserDatabaseInformation messageObject,UserDatabaseInformation myselfInfo) {
             this.context=context;
             this.messageObject=messageObject;
-            this.myselfInfo=myselfInfo;
+            this.myselfInfo=myselfInfo;//it contains itself and receiver  numbere
 
         }
 
@@ -116,7 +116,7 @@ public class FirebaseUserModel {
         protected Void doInBackground(Void...params){
 
                 mdatabaseReference
-                        .child("users/9813847444/friends/9860569432/chats/")
+                        .child("users/"+myselfInfo.getReceiverPhoneNumber()+"/friends/"+myselfInfo.getPhoneNumber()+"/chats/")
                         .push()
                         .setValue(messageObject);
                  return null;

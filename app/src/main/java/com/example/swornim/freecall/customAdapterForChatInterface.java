@@ -21,15 +21,16 @@ import java.util.List;
 public class customAdapterForChatInterface extends ArrayAdapter<UserDatabaseInformation> {
 
 
-    private List<UserDatabaseInformation> sourceBucket=new ArrayList<>();//its an array list container
+    private List<UserDatabaseInformation> sourceBucket = new ArrayList<>();//its an array list container
     private Context context;
-    private String clicked="nope";
+    private String clicked = "nope";
+    private String which;
 
 
-    public customAdapterForChatInterface(Context context,List<UserDatabaseInformation> sourceBucket) {
-        super(context,R.layout.custommessagelist,sourceBucket);
-        this.context=context;
-        this.sourceBucket=sourceBucket;
+    public customAdapterForChatInterface(Context context, List<UserDatabaseInformation> sourceBucket) {
+        super(context, R.layout.custommessagelist, sourceBucket);
+        this.context = context;
+        this.sourceBucket = sourceBucket;
     }
 
 //sourcebucket is now the list of arrays containing objects
@@ -38,64 +39,59 @@ public class customAdapterForChatInterface extends ArrayAdapter<UserDatabaseInfo
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Typeface typeface1=Typeface.createFromAsset(context.getAssets(),"Comfortaa-Light.ttf");
+        Typeface typeface1 = Typeface.createFromAsset(context.getAssets(), "Comfortaa-Light.ttf");
         View mView = convertView;
-        if(convertView==null) {
+
 
             LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-            mView = layoutInflater.inflate(R.layout.left_message, parent, false);
-        }
-        TextView leftMessage=(TextView) mView.findViewById(R.id.leftMessage);
-        leftMessage.setTypeface(typeface1);
 
-        if(sourceBucket.get(position).getMes()!=null){
-            leftMessage.setText(sourceBucket.get(position).getMes());
-        }
-
-
-        TextView seentextview=(TextView) mView.findViewById(R.id.statusReport);
-        final ImageView photoMessageView=(ImageView) mView.findViewById(R.id.imageMessasgeView);
-
-        if(sourceBucket.get(position).getPhotoM()==null){
-            photoMessageView.getLayoutParams().width=0;
-            photoMessageView.getLayoutParams().height=0;
-        }
-
-        else if(sourceBucket.get(position).getPhotoM()!=null){
-            photoMessageView.getLayoutParams().width=200;
-            photoMessageView.getLayoutParams().height=200;
-        }
-
-        if(sourceBucket.get(position).getSen()!=null)
-        seentextview.setText(sourceBucket.get(position).getSen());
-
-
-            if (sourceBucket.get(position).getPhotoM()!=null ) {
-
-                if(sourceBucket.get(position).getPhotoM().equals("yup")) {
-
-                    Glide.with(getContext()).
-                            load(sourceBucket.get(position).getPhotoUrl())
-                            .centerCrop()
-                            .skipMemoryCache(true)
-                            .into(photoMessageView);
+            if (sourceBucket.get(position).getPhotoM() != null) {
+                if (sourceBucket.get(position).getPhotoM().equals("yup")) {
+                    which = "photo";
+                    mView = layoutInflater.inflate(R.layout.photolayout, parent, false);
                 }
+            } else if (sourceBucket.get(position).getSen() != null) {
+                if (sourceBucket.get(position).getSen().equals("seen"))
+                    which = "seen";
+                mView = layoutInflater.inflate(R.layout.seenlayout, parent, false);
+
+            } else { //id not null means sender message
+
+                which = "lefttext";
+                mView = layoutInflater.inflate(R.layout.left_message, parent, false);
             }
 
-            photoMessageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                 Toast.makeText(getContext(), "Full screen not available broo", Toast.LENGTH_LONG).show();
 
-                }
-            });
+            if (which.equals("photo")) {
+                final ImageView photoMessageView = (ImageView) mView.findViewById(R.id.imageMessasgeView);
 
-       // whoCameToChat.setText(currentAppUserName);
+                Glide.with(getContext()).
+                        load(sourceBucket.get(position).getPhotoUrl())
+                        .centerCrop()
+//                    .skipMemoryCache(true)
+                        .into(photoMessageView);
+            }
+
+            if (which.equals("lefttext")) {
+                TextView leftMessage = (TextView) mView.findViewById(R.id.leftMessage);
+                TextView username = (TextView) mView.findViewById(R.id.userName);
+                leftMessage.setTypeface(typeface1);
+
+                leftMessage.setText(sourceBucket.get(position).getMes());
+                username.setText(sourceBucket.get(position).getUserName());
+            }
+
+            if (which.equals("seen")) {
+
+
+                TextView status = (TextView) mView.findViewById(R.id.status);
+                status.setText(sourceBucket.get(position).getSen());
+
+            }
 
         return mView;
 
     }
-
-
-
 }
+
+

@@ -92,26 +92,21 @@ public class RenotifierChatHome extends AppCompatActivity {
         }
 
         userPhoneNumber= new CustomSharedPref(getApplicationContext()).getSharedPref("userPhoneNumber");
-        mdatabaseReference = FirebaseDatabase.getInstance().getReference("users/freecall/users/9813847444/friends/"+minorDetails.getContactNumber()+"/chats/");
+        mdatabaseReference = FirebaseDatabase.getInstance().getReference("users/freecall/users/"+userPhoneNumber+"/friends/"+minorDetails.getContactNumber()+"/chats/");
 
         mdatabaseReference.limitToLast(3).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                sourceBucket.clear();
-//                adapter.clear();
+
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
                     Log.i("mytag","Value "+dataSnapshot1.getValue().toString());
                     UserDatabaseInformation messageObject=dataSnapshot1.getValue(UserDatabaseInformation.class);
                     sourceBucket.add(messageObject);
                     newMessageCame="yup";
-                    lastUserMessaegKey=dataSnapshot1.getKey();
+//                    lastUserMessaegKey=dataSnapshot1.getKey();
                 }
 
-
-
-                Log.i("mytag","response "+dataSnapshot.toString());
-                Log.i("mytag","last key  "+lastUserMessaegKey);
 
                 adapter.notifyDataSetChanged();
                 customessageListView.setSelection(adapter.getCount()-1);//scrolls ups
@@ -171,11 +166,7 @@ public class RenotifierChatHome extends AppCompatActivity {
                 inputMethodManager.showSoftInput(actualMessageView, InputMethodManager.RESULT_SHOWN);
 
                 if(newMessageCame.equals("yup")){
-                    //call firabase and sent the seen message to the friend that messaged me
-                    mdatabaseReferenceForSeen = FirebaseDatabase.getInstance().getReference("users/"  + "/friends/" + minorDetails.getContactNumber() + "/chats/");
-
-                    mdatabaseReferenceForSeen.child(lastUserMessaegKey).child("sen").setValue("Seen");
-                    newMessageCame="nope";
+                  sendSeenToFriend();
                 }
 
             }
@@ -260,22 +251,24 @@ public class RenotifierChatHome extends AppCompatActivity {
         String mes = actualMessageView.getText().toString();
 
         if (!mes.isEmpty()) { //dont send blank message
+            String userName= new CustomSharedPref(getApplicationContext()).getSharedPref("userName");
 
             UserDatabaseInformation messageObject1=new UserDatabaseInformation();
             messageObject1.setMes(mes);
+            messageObject1.setUserName(userName);
+
 
             sourceBucket.add(messageObject1);
             adapter.notifyDataSetChanged();
 
             UserDatabaseInformation messageObject=new UserDatabaseInformation();
             messageObject.setMes(mes);
-            messageObject.setSen("");
-//            messageObject.setReceiverPhoneNumber(minorDetails.getContactNumber());
-//            messageObject.setReceiverUserName(minorDetails.getContactName());
+            messageObject.setUserName(userName);
+
             String MyNumber=new CustomSharedPref(getApplicationContext()).getSharedPref("userPhoneNumber");
             UserDatabaseInformation myselfInfo=new UserDatabaseInformation();
             myselfInfo.setPhoneNumber(MyNumber);
-            myselfInfo.setUserName("swornim10rock");
+            myselfInfo.setReceiverPhoneNumber(minorDetails.getContactNumber());
 
             customessageListView.setSelection(adapter.getCount()-1);//scrolls ups
 
@@ -283,6 +276,8 @@ public class RenotifierChatHome extends AppCompatActivity {
         }
 
         actualMessageView.setText("");
+
+
     }
 
     public int randomNumber(){ return new Random().nextInt(1000)+2; }
@@ -291,9 +286,6 @@ public class RenotifierChatHome extends AppCompatActivity {
     public void onBackPressed() {
 
         startActivity(new Intent(RenotifierChatHome.this,FreeCallHomePage.class));
-
-        //whenever users clicks back, implmenet your method
-
     }
 
     public void showUserName(){
@@ -376,9 +368,6 @@ public class RenotifierChatHome extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mdatabaseReference=null;
-        //call this whenever the user will start the app instance but not the resume instance of app
-        //save all the users genereated pushedkey to the database and first drop the previous table
-
     }
 
     @Override
@@ -395,8 +384,13 @@ public class RenotifierChatHome extends AppCompatActivity {
 
     }
 
-    private void makeSeenInterprcess(){
-        mdatabaseReferenceForSeen = FirebaseDatabase.getInstance().getReference("users/" + userPhoneNumber + "/friends/" + minorDetails.getContactNumber() + "/chats/");
+    private void sendSeenToFriend(){
+
+        UserDatabaseInformation messageObject=new UserDatabaseInformation();
+        messageObject.setSen("seen");
+        mdatabaseReferenceForSeen = FirebaseDatabase.getInstance().getReference("users/freecall/users/"+minorDetails.getContactNumber()+"/friends/"+new CustomSharedPref(getApplicationContext()).getSharedPref("userPhoneNumber")+"/chats/");
+        mdatabaseReferenceForSeen.push().setValue(messageObject);
+        newMessageCame="nope";
 
 
     }
@@ -455,11 +449,11 @@ public class RenotifierChatHome extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     //call firebase and sent the data as chat message with message included tag
-                    mdatabaseReferenceForImage = FirebaseDatabase.getInstance().getReference("users/freecall/users/"+new CustomSharedPref(getApplicationContext()).getSharedPref("userPhoneNumber")+"/friends/"+minorDetails.getContactNumber()+"/chats/");
+                    mdatabaseReferenceForImage = FirebaseDatabase.getInstance().getReference("users/freecall/users/"+minorDetails.getContactNumber()+"/friends/"+new CustomSharedPref(getApplicationContext()).getSharedPref("userPhoneNumber")+"/chats/");
 
                     UserDatabaseInformation messageObject=new UserDatabaseInformation();
-                    messageObject.setMes("Photo Message");
-                    messageObject.setPhotoM("yup");
+                    messageObject.setMes("Pic Message");
+                    messageObject.setPhotoM("yup");//status to change the custom view
                     messageObject.setPhotoUrl(taskSnapshot.getDownloadUrl().toString());
                     mdatabaseReferenceForImage.push().setValue(messageObject);
                     statusReport.setText("Delivered");
