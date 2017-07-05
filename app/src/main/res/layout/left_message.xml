@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/leftMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/round"
+                android:padding="5dp"
+                android:text="Photo Message"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:layout_alignLeft="@+id/whoCameToChat"
+                android:layout_alignStart="@+id/whoCameToChat" />
+
+
+            <TextView
+                android:id="@+id/whoCameToChat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/leftMessage"
+                android:layout_marginLeft="14dp"
+                android:text="dsffdsfdsf"
+                android:textColor="#05f7f7"
+                android:textSize="10dp" />
+
+            <LinearLayout
+                android:id="@+id/imagewrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/whoCameToChat"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:id="@+id/imageMessasgeView"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_below="@id/whoCameToChat" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/statusReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignRight="@id/whoCameToChat"
+                android:layout_below="@id/imagewrapper"
+                android:paddingRight="10dp"
+                android:text=""
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10sp" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

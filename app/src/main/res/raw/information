@@ -1,0 +1,21 @@
+<> Broadcast receiver registeration can be done in the two ways:
+1. By using the static file (manifest file)
+2. dynamically using the source code on start and on pause method( not compulsory)
+
+if dyanamic then the app must be running to receive the broadcast by the system
+----------------------------------------------------------------------------------------------------
+for manifest file you should use the tag
+<application>
+  <receiver android:name=".AlertReceiver"> //name of the class that extends the broadcastreceiver
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        .
+        .
+        .
+        </application>
+
+
+   * LocalBroadcastmanager class is used to register and unregister for and send broadcasts of intents
+   to local objects within the process(for dynamic broadcast receiver)

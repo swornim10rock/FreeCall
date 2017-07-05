@@ -1,0 +1,228 @@
+{
+  "project_info": {
+    "project_number": "890127243005",
+    "firebase_url": "https://fir-cloudmessage-ac7af.firebaseio.com",
+    "project_id": "fir-cloudmessage-ac7af",
+    "storage_bucket": "fir-cloudmessage-ac7af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890127243005:android:4140631c36d5d433",
+        "android_client_info": {
+          "package_name": "com.example.swornim.firebasecloudmessage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890127243005-nljdejehdk26fgh31jrrpk7pk8cvebpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJgFs5CwVC2Tx8PCiyXyAGkvCGLBTn0Qc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890127243005:android:514fa1957f86acaf",
+        "android_client_info": {
+          "package_name": "com.example.swornim.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890127243005-nljdejehdk26fgh31jrrpk7pk8cvebpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJgFs5CwVC2Tx8PCiyXyAGkvCGLBTn0Qc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890127243005:android:9d27c4f0f22eb0e1",
+        "android_client_info": {
+          "package_name": "com.example.swornim.pushnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890127243005-nljdejehdk26fgh31jrrpk7pk8cvebpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJgFs5CwVC2Tx8PCiyXyAGkvCGLBTn0Qc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890127243005:android:fa55cfbe087306cf",
+        "android_client_info": {
+          "package_name": "com.example.swornim.firebaserealtimechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890127243005-nljdejehdk26fgh31jrrpk7pk8cvebpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJgFs5CwVC2Tx8PCiyXyAGkvCGLBTn0Qc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890127243005:android:787d3cc7e3b8b7bf",
+        "android_client_info": {
+          "package_name": "com.example.swornim.musicnap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890127243005-nljdejehdk26fgh31jrrpk7pk8cvebpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJgFs5CwVC2Tx8PCiyXyAGkvCGLBTn0Qc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890127243005:android:4f43059b2cb3b8ce",
+        "android_client_info": {
+          "package_name": "com.example.swornim.freecall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890127243005-nljdejehdk26fgh31jrrpk7pk8cvebpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJgFs5CwVC2Tx8PCiyXyAGkvCGLBTn0Qc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890127243005:android:cfe4410856db4c09",
+        "android_client_info": {
+          "package_name": "com.example.swornim.rachit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890127243005-nljdejehdk26fgh31jrrpk7pk8cvebpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJgFs5CwVC2Tx8PCiyXyAGkvCGLBTn0Qc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

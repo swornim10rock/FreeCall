@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "461902210180",
+    "firebase_url": "https://freecall-272a8.firebaseio.com",
+    "project_id": "freecall-272a8",
+    "storage_bucket": "freecall-272a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461902210180:android:4f43059b2cb3b8ce",
+        "android_client_info": {
+          "package_name": "com.example.swornim.freecall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461902210180-3upf3b6ndtc90pekss18lck08jevun7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB12yubERBk4b0uKU87hIBl2cdsTa8d64"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

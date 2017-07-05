@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.example.swornim.freecall.MainActivity"
+    android:background="#000000">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message1"
+        android:id="@+id/btnMsg1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message2"
+        android:id="@+id/btnMsg2"
+        android:layout_below="@+id/btnMsg1"
+        android:layout_alignLeft="@+id/btnMsg1"
+        android:layout_alignStart="@+id/btnMsg1"
+        android:layout_marginTop="43dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message3"
+        android:id="@+id/btnMsg3"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/btnMsg2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message4"
+        android:id="@+id/btnMsg4"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/btnMsg3"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

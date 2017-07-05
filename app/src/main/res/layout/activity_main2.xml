@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.swornim.freecall.Main2Activity"
+    android:background="#000000">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/back13"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:id="@+id/actualPopMessage"
+        android:text="This is the actual message"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
+        android:textSize="35dp" />
+
+    </RelativeLayout>
+
+
+
+    </FrameLayout>
+
+
+</RelativeLayout>
